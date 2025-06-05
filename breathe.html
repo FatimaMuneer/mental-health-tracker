@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Heading and Top Button</title>
+    <style>
+        body, html {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./pink.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: background-image 1s ease;
+}
+
+
+        .header-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .dropdown {
+            padding: 10px;
+            font-size: 16px;
+            background-color: transparent;
+            border-radius: 20px;
+
+        }
+        .container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .center-heading {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Pinyon Script', cursive;
+            font-size: 55px;
+            color: rgb(117, 53, 27);
+        }
+        .breather-ball {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #6ca0dc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #fff;
+            transition: width 2s, height 2s, background-color 0.5s;
+        }
+
+        .control-buttons {
+            margin-top: 20px;
+        }
+
+        .control-buttons button {
+            margin: 0 5px;
+            padding: 10px 20px;
+            background-color: #6ca0dc;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        #message{
+            animation-delay: 2s;
+
+
+        }
+        
+   
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <select class="dropdown">
+            <option value="" disabled selected>Change background</option>
+            <option value="1">Green</option>
+            <option value="2">Orange</option>
+            <option value="3">Pink</option>
+        </select>
+    </div>
+
+    <h1 class="center-heading">Let's Breathe</h1>
+    <div class="container">
+        <div class="breather-ball" id="breatherBall">Breathe In</div>
+        <div class="control-buttons">
+            <br>
+            <button onclick="startBreathing()">Start</button>
+            <button onclick="stopBreathing()">Stop</button><br>
+
+        </div>
+    </div>
+
+    <div id="message" style="margin-top: 20px; font-size: 24px; font-weight: bold; color: #fd2525; display: none;">
+        Well done, You did a great job!
+    </div>
+
+    <script>
+        $(document).ready(function(){
+    $(".dropdown").change(function(){
+        let selectedOption = $(this).val();
+        
+        if(selectedOption === "1") {
+            $("body").css("background-image", "url('./green.jpg')");
+        } 
+        else if(selectedOption === "2") {
+            $("body").css("background-image", "url('./orange.jpg')");
+        } 
+        else if(selectedOption === "3") {
+            $("body").css("background-image", "url('./pink.jpg')");
+        }
+    });
+});
+
+        let timeouts = [];
+        let isRunning = false;
+        const ball = document.getElementById("breatherBall");
+    
+        function startBreathing() {
+            if (isRunning) return;
+            isRunning = true;
+            message.style.display="none";
+    
+            function inhale() {
+                ball.style.width = "150px";
+                ball.style.height = "150px";
+                ball.textContent = "Breathe In";
+                timeouts.push(setTimeout(hold, 3000));
+            }
+            function hold() {
+            ball.textContent = "Hold";
+            timeouts.push(setTimeout(exhale, 2000));
+        }
+
+        function exhale() {
+            ball.style.width = "100px";
+            ball.style.height = "100px";
+            ball.textContent = "Breathe Out";
+            timeouts.push(setTimeout(inhale, 3000));
+        }
+
+        inhale();
+       
+    }
+    function stopBreathing() {
+        isRunning = false;
+        timeouts.forEach(clearTimeout); // Clear all active timeouts
+        timeouts = []; // Reset timeouts array
+        ball.textContent = "Breathe In";
+        ball.style.width = "100px";
+        ball.style.height = "100px";
+        message.style.display = "block";
+    }
+</script>
+
+
+</body>
+</html>

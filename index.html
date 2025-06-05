@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mental Health Tracker - Home</title>
+
+    <!-- Google Font Generator -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icon CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Light/Dark Mode Toggle -->
+    <div
+      class="toggle-container"
+      aria-label="Toggle light and dark mode"
+    >
+      <span>Dark Mode</span>
+      <div class="toggle-switch" id="mode-toggle"></div>
+    </div>
+
+    <!-- Header and Navigation -->
+    <header role="banner" aria-label="Main navigation">
+      <div class="header-inner">
+        <div class="logo"><img src="logo1.png" width='75px'></div>
+        <nav role="navigation" aria-label="Primary navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="progress.html">Progress Dashboard</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="settings.html">Settings</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="hero"
+      role="region"
+      aria-label="Welcome section with motivational quotes"
+    >
+      <div class="hero-content">
+        <h1>Welcome to Your Mental Health Tracker</h1>
+        <p>
+          Take charge of your emotional well-being with our intuitive app. Monitor your moods, express your thoughts through journaling, practice calming breathing exercises, and access trusted mental health resources—all in one place. Start your journey to a healthier mind and happier life today, one moment at a time.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div
+          class="cta-buttons"
+          role="group"
+          aria-label="Primary call to action buttons"
+        >
+          <button class="cta-button" onclick="location.href='mood.html'">   
+            Start Tracking Your Mood
+          </button>
+          <button class="cta-button" onclick="location.href='journal.html'">
+            Begin Your Journal
+          </button>
+          <button class="cta-button" onclick="location.href='breathing.html'">
+            Take a Breathing Break
+          </button>
+          <!--location.href changes current browser's URL to the specified URL-->
+        </div>
+
+        <!-- Dynamic Quote -->
+        <div
+          class="quote-carousel"
+        ></div>
+      </div>
+    </section>
+
+    <!-- Introduction & Mission -->
+    <section class="introduction" role="region" aria-labelledby="intro-title">
+      <h2 id="intro-title">Our Mission</h2>
+      <p>
+        We believe mental health is as important as physical health. Our tracker
+        helps you monitor moods, reflect with daily journaling, and find calm in
+        busy days.
+      </p>
+      <div class="illustrations">
+        <img
+          src="meditation.webp"
+          alt="Meditation illustration"
+          class="illustration-item"
+        />
+        <img
+          src="mood icons.jpg"
+          alt="Mood icons illustration"
+          class="illustration-item"
+        />
+        <img
+          src="self-care.avif"
+          alt="Self-care illustration"
+          class="illustration-item"
+        />
+      </div>
+    </section>
+
+    <!-- Features Quick Access Tiles -->
+    <section class="features" role="region" aria-labelledby="features-title">
+      <h2 id="features-title">Quick Access</h2>
+      <div class="feature-tiles">
+        <article
+          class="feature-tile"
+          role="article"
+          aria-label="Mood Tracker feature"
+          onclick="location.href='mood.html'"
+        >
+          <i class="fa-solid fa-face-smile-beam feature-icon"></i>
+          <h3>Mood Tracker</h3>
+          <p>Record and reflect on your moods daily for insight and growth.</p>
+          <a href="mood.html" class="feature-link">Go to Mood Tracker</a>
+        </article>
+        <article
+          class="feature-tile"
+          role="article"
+          aria-label="Daily Journal feature"
+          onclick="location.href='journal.html'"
+        >
+          <i class="fa-solid fa-book-open feature-icon"></i>
+          <h3>Daily Journal</h3>
+          <p>Write freely about your thoughts to foster mindfulness.</p>
+          <a href="journal.html" class="feature-link">Go to Journal</a>
+        </article>
+        <article
+          class="feature-tile"
+          role="article"
+          aria-label="Breathing Exercise feature"
+          onclick="location.href='breathing.html'"
+        >
+          <i class="fa-solid fa-lungs feature-icon"></i>
+          <h3>Breathing Exercise</h3>
+          <p>Engage in calming breathing sessions to relieve stress.</p>
+          <a href="breathing.html" class="feature-link">Try Breathing</a>
+        </article>
+        <article
+          class="feature-tile"
+          role="article"
+          aria-label="Resources feature"
+          onclick="location.href='resources.html'"
+        >
+          <i class="fa-solid fa-heart-pulse feature-icon"></i>
+          <h3>Resources</h3>
+          <p>Find articles, support hotlines, and self-care apps.</p>
+          <a href="resources.html" class="feature-link">Explore Resources</a>
+        </article>
+        <article
+          class="feature-tile"
+          role="article"
+          aria-label="Progress Dashboard feature"
+          onclick="location.href='progress.html'"
+        >
+          <i class="fa-solid fa-chart-line feature-icon"></i>
+          <h3>Progress Dashboard</h3>
+          <p>Track your weekly stats, mood trends, and journaling streaks.</p>
+          <a href="progress.html" class="feature-link">View Progress</a>
+        </article>
+        <article
+          class="feature-tile"
+          role="article"
+          aria-label="Contact feature"
+          onclick="location.href='contact.html'"
+        >
+          <i class="fa-solid fa-envelope feature-icon"></i>
+          <h3>Contact</h3>
+          <p>Get support or send us your feedback and questions.</p>
+          <a href="contact.html" class="feature-link">Contact Us</a>
+        </article>
+        <article
+          class="feature-tile"
+          role="article"
+          aria-label="Settings and Profile feature"
+          onclick="location.href='settings.html'"
+        >
+          <i class="fa-solid fa-user-cog feature-icon"></i>
+          <h3>Settings &amp; Profile</h3>
+          <p>
+            Customize your app experience including reminders and preferences.
+          </p>
+          <a href="settings.html" class="feature-link">Go to Settings</a>
+        </article>
+        <article
+          class="feature-tile"
+          role="article"
+          aria-label="mental health chatbot feature"
+          onclick="location.href='chatbot.html'"
+        >
+          <i class="fa-solid fa-robot feature-icon"></i>
+          <h3>Mental Health Chatbot</h3>
+          <p>
+            Talk with your friendly chatbot anytime for support and guidance.
+          </p>
+          <a href="chatbot.html" class="feature-link">Go to Chatbot</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Newsletter Subscription Section -->
+    <section
+      class="newsletter"
+      role="region"
+      aria-labelledby="newsletter-title"
+    >
+      <h2 id="newsletter-title">Subscribe for Daily Inspiration.
+      </h2>
+      <form id="newsletter-form" aria-describedby="newsletter-desc" novalidate>  
+        <input
+          type="email"
+          id="email-input"
+          name="email"
+          placeholder="Enter your email address"
+          aria-label="Email address"
+          required
+        />
+        <button type="submit">Subscribe</button>
+      </form>
+      <!--novalidate attribute is used to prevent the browser from validating the form even if there is a required attribute-->
+      <p id="newsletter-desc" class="description">
+        Subscribe with your email to get daily mental health tips and
+        inspiration.
+      </p>
+    </section>
+
+    <!-- User Testimonials Carousel -->
+    <section
+      class="testimonials-section"
+      role="region"
+      aria-labelledby="testimonials-title"
+    >
+      <h2 id="testimonials-title">User Testimonials</h2>
+      <div class="testimonial-carousel">
+        <blockquote class="testimonial-slide active">
+          "This tracker helped me feel more in control of my emotions. The daily
+          journal feature encourages me to reflect deeply and stay mindful."
+          <footer class="testimonial-author">- Alex R.</footer>
+        </blockquote>
+        <blockquote class="testimonial-slide">
+          "Journaling every day has been incredibly therapeutic. The breathing
+          exercises provide a great way to relax after a stressful day."
+          <footer class="testimonial-author">- Jamie L.</footer>
+        </blockquote>
+        <blockquote class="testimonial-slide">
+          "The breathing exercises truly calm my mind on stressful days. Plus,
+          the progress dashboard motivates me to keep tracking consistently."
+          <footer class="testimonial-author">- Samira K.</footer>
+        </blockquote>
+        <blockquote class="testimonial-slide">
+          "I love how the app provides resources right when I need them. It’s
+          like having a mental health companion in my pocket."
+          <footer class="testimonial-author">- Jordan P.</footer>
+        </blockquote>
+        <blockquote class="testimonial-slide">
+          "The reminders and settings allow me to tailor the experience
+          perfectly. It’s easy to use and encourages positive daily habits."
+          <footer class="testimonial-author">- Casey W.</footer>
+        </blockquote>
+        <blockquote class="testimonial-slide">
+          "Subscribing to the daily inspirations really brightens my mornings.
+          The community and tools here have been a vital support in my mental
+          health journey."
+          <footer class="testimonial-author">- Taylor M.</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Daily Affirmation Widget -->
+    <section
+      class="daily-tip"
+      role="region"
+      aria-label="Daily mental health tip or affirmation"
+    >
+      Loading daily tip...
+    </section>
+
+    <!-- Progress Snapshot -->
+    <section class="progress-snapshot" role="region" aria-labelledby="progress-title">
+  <h2 id="progress-title">Your Weekly Progress</h2>
+  <div class="progress-row">
+    <div class="progress-item">Entries this Week: 7</div>
+    <div class="progress-item">Mood Trend: Mostly Relaxed</div>
+  </div>
+  <div class="progress-row single-center">
+    <div class="progress-item">Journal Streak: 5 Days</div>
+  </div>
+</section>
+
+    <!-- Floating Music Button -->
+    <button
+      class="music-button"
+      aria-label="Toggle calming background music"
+      title="Play/Pause calming music"            
+    >
+    <!--title is shown when we hover the element on our site-->
+      <i class="fa-solid fa-music"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer role="contentinfo" class="footer">
+  <div class="footer-inner">
+    <p>Follow us on social media:</p>
+    <ul class="social-links" role="list">
+      <li>
+        <a href="#" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    </ul>
+    <p>
+      Contact: 
+      <a href="mailto:support@mentalhealthtracker.com">support@mentalhealthtracker.com</a>
+    </p>
+    <p>© 2023 Mental Health Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+    <!-- jquery link -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>

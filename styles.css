@@ -1,0 +1,599 @@
+/* Basic & layout styles */
+body {
+  font-family: "Roboto", "Quicksand", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #c5d9f1, #ebe9f7);
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+body.dark-mode{
+  background: #121212;
+  color: #000000;
+}
+header {
+  position: relative;
+  background-color: #275a96;
+  padding: 25px 0px;                   /*top/bottom left/right*/
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);    /*right, bottom, blur, color*/
+  transition: background-color 0.3s ease;
+  z-index: 100;
+}
+
+/* Container to hold logo and nav */
+.header-inner {
+  max-width: 1200px;
+  margin: 0 10px;                 /*top/bottom left/right*/
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+body.dark-mode header{
+  background-color: #1e1e1e;
+}
+/* Logo absolutely positioned on left */
+.logo{
+  position: absolute;
+  left: 0px;
+  cursor: pointer;
+  user-select: none;          /*text of this element can't be selected*/
+  padding-top: 0px;
+  margin: 0px;
+}
+
+.logo:hover {
+  transform: scale(1.05);    /*logo will be 1px larger than real and for 1 sec*/
+}
+
+/* Navigation styles */
+nav {
+  flex: 1; /* takes available space */
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;  /* center nav links */
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #f0f5f9;
+  font-weight: 600;
+  padding: 8px 14px;              /*top/bottom left/right*/
+  border-radius: 6px;
+  position: relative;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0px;
+  height: 2px;
+  background: #f0f5f9;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav ul li a:hover,              /*hover means mouse is over the element whereas focus means element has keyboard focus like selected or clicked*/
+nav ul li a:focus {
+  background-color: #f0f5f9;
+  color: #275a96;
+}
+
+nav ul li a:hover::after,
+nav ul li a:focus::after {
+  width: 100%;
+  left: 0;
+}
+body.dark-mode nav ul li a{
+  color: #ccc;
+}
+body.dark-mode nav ul li a:hover{
+  background-color: #555;
+  color: #f0f5f9;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 400px;
+  background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80")
+    center/cover no-repeat;       /*background image, position, size (zoom), repeat*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;              /*top/bottom left/right*/
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;                      /*top, right, bottom, left, it is used instead of top, right, bottom, left for absolute position*/
+  background: rgba(39, 90, 150, 0.65);
+  z-index: 0;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+}
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 15px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.hero p {
+  font-size: 1.50rem;
+  margin-bottom: 25px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 400;
+}
+.cta-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cta-button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 12px 20px;             /*top/bottom left/right*/
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: medium;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.cta-button:hover,
+.cta-button:focus {
+  background-color: #3374cd;
+}
+.quote-carousel {
+  margin-top: 20px;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #dce6f5;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 10px 1px 4px rgba(0, 0, 0, 0.6);   /*left, top, blur, color*/
+  min-height: 48px;
+}
+
+/* Introduction */
+.introduction {
+  padding: 50px 20px;             /*top/bottom left/right*/
+  background-color: #f9fbfd;
+  text-align: center;
+}
+.introduction h2 {
+  color: #275a96;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.introduction p {
+  font-size: 1.2rem;
+  max-width: 720px;
+  margin: 0 auto 25px auto;     /*top, right, bottom, left*/
+  line-height: 1.5;
+}
+.illustrations {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.illustration-item {
+  height: 120px;
+  border-radius: 7px;
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.500);  /*left, bottom, blur, color*/
+} 
+.illustration-item:hover,
+.illustration-item:focus {
+  transform: scale(1.05);             /*logo will be 1.05px larger than real and for 1.05 sec*/
+}
+
+/* Features Tiles */
+.features {
+  padding: 50px 20px;        /*top/bottom left/right*/
+  background: white;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;           /*top/bottom left/right*/
+}
+.features h2 {
+  font-size: 2.6rem;
+  color: #275a96;
+  margin-bottom: 35px;
+}
+.feature-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));  /*minmax gives width of 220px and 1fr for remaining space to each feature*/
+  gap: 30px;
+}
+.feature-tile {
+  background: #e6f0fa;
+  border-radius: 20px;
+  padding: 30px 20px;            /*top/bottom left/right*/
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);      /*left, bottom, blur, color*/
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+.feature-tile:hover,
+.feature-tile:focus {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);   /*left, bottom, blur, color*/
+}
+.feature-icon {
+  font-size: 3.5rem;
+  color: #4a90e2;
+  margin-bottom: 18px;
+}
+.feature-tile h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: #204d74;
+}
+.feature-tile p {
+  font-size: 1rem;
+  color: #336699;
+}
+.feature-link {
+  margin-top: 12px;
+  font-weight: 700;
+  color: #275a96;
+  text-decoration: underline;
+  font-size: 1rem;
+}
+.feature-link:hover,
+.feature-link:focus {
+  color: #1a3f71;
+}
+
+/* Newsletter Subscription Section */
+.newsletter {
+  background: #f0f5f9;
+  padding: 40px 20px;                             /*top/bottom left/right*/
+  text-align: center;
+  border-radius: 12px;
+  max-width: 480px;
+  margin: 40px auto 60px auto;               /*top, right, bottom, left*/
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);      /*left, bottom, blur, color*/
+}
+.newsletter h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #275a96;
+}
+.newsletter form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.newsletter input[type="email"] {
+  padding: 12px 15px;            /*top/bottom left/right*/
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 2px solid #4a90e2;
+  flex-grow: 1;                  /*it will take all the available space that remains after button space as it is double of button flex-grow which is 0*/
+  max-width: 300px;
+  outline-offset: 2px;      /*gives outline to the element when it is focused*/
+}
+.newsletter button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 13px 25px;         /*top/bottom left/right*/
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.newsletter button:hover,
+.newsletter button:focus {
+  background-color: #3374cd;
+}
+
+/* Testimonials Carousel */
+.testimonials-section {
+  background: #f4f7fd;
+  padding: 50px 20px;                  /*top/bottom left/right*/
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto 60px auto;         /*top, right, bottom, left*/
+}
+.testimonials-section h2 {
+  font-size: 2.4rem;
+  color: #275a96;
+  margin-bottom: 30px;
+}
+.testimonial-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 25px;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+.testimonial-carousel::-webkit-scrollbar {          /*::-webkit-scrollbar is used to style the scrollbar*/
+  height: 8px;
+}
+.testimonial-carousel::-webkit-scrollbar-thumb {   /*::-webkit-scrollbar-thumb is used to style the scrollbar thumb (can be any other element instead of thumb)*/
+  background-color: #4a90e2;
+  border-radius: 4px;
+}
+.testimonial-slide {
+  flex: 0 0 320px;            /*flex-grow, flex-shrink, flex-basis(real length of the element before any distribution)*/
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);           /*left, bottom, blur, color*/
+  color: #204d74;
+  font-style: italic;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px 20px;
+  min-height: 180px;
+  transition: transform 0.3s ease;
+}
+.testimonial-slide:focus,
+.testimonial-slide:hover {
+  transform: translateY(-10px);
+  outline: 2px solid #4a90e2;
+}
+.testimonial-author {
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #5577a1;
+  text-align: right;
+}
+
+/* Daily Tip / Affirmation Widget */
+.daily-tip {
+  background: #cce5f7;
+  border-radius: 15px;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px 25px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  color: #204d74;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress Snapshot */
+.progress-snapshot {
+  background: #eff5fc;
+  max-width: 720px;
+  margin: 40px auto 80px auto;
+  border-radius: 18px;
+  padding: 30px 25px;
+  color: #336699;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-snapshot h2 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Container for first row: 2 items side by side */
+.progress-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Special styling for single centered item row below */
+.progress-row.single-center {
+  justify-content: center;
+}
+
+/* Progress items */
+.progress-item {
+  background: #d9e9f9;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  font-size: 1.1rem;
+  flex: 1; /* evenly share space */
+  margin: 0 10px;
+  max-width: 280px; /* optional max width per item */
+}
+
+/* Light/Dark Mode Toggle */
+.toggle-container {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 200;     /*to be above all elements*/
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 15px;
+  border-radius: 25px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  user-select: none;      /*text of this element can't be selected*/
+  transition: background-color 0.3s ease;  /*to animate background color like it takes 3 sec to change it's color*/
+}
+body.dark-mode .toggle-container {
+  background: rgba(30, 30, 30, 0.9);
+  color: #ccc;
+}
+.toggle-switch {
+  margin-left: 10px;
+  width: 50px;
+  height: 25px;
+  background: #888;
+  border-radius: 25px;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+.toggle-switch::before {
+  content: "";        /*to create additional content ::before means it will be represented before the content of the element*/
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 19px;
+  height: 19px;
+  background: #f0f5f9;
+  border-radius: 50%;
+  transition: transform 0.3s ease;     /*switch will take 3sec to change its state*/
+}
+.toggle-switch.active {
+  background: #4a90e2;
+}
+.toggle-switch.active::before {
+  transform: translateX(25px);
+}
+/* Floating Music Button */
+.music-button {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #4a90e2;
+  border-radius: 50%;
+  border: none;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  color: white;
+  font-size: 1.8rem;
+  transition: background-color 0.3s ease;
+  z-index: 200;
+}
+.music-button:hover,
+.music-button:focus {
+  background-color: #3374cd;
+  outline: none;
+}
+
+/* Footer */
+.footer {
+  background-color: #275a96;
+  color: #f0f5f9;
+  padding: 20px 0;
+  font-size: 1rem;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0 0 15px;
+}
+
+.footer p a:hover{
+  color: #121212;
+}
+
+.social-links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-links li a {
+  color: #f0f5f9;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-links li a:hover,
+.social-links li a:focus {
+  color: #041a3b;
+  outline: none;
+}
+
+@media (max-width: 480px) {
+    header{
+      height: 19px;
+    }
+    .logo{
+      padding-top: 20px;
+    }
+    nav{
+      display: none;
+    }
+    .hero h1 {
+        font-size: 2.5rem; /* Smaller heading */
+    }
+
+    .hero p {
+        font-size: 1rem; /* Smaller paragraph */
+    }
+
+    .quote-carousel {
+        font-size: 0.9rem; /* Smaller quote font */
+    }
+
+    .testimonial-slide {
+        flex: 0 0 280px; /* Adjust testimonial size */
+    }
+
+    .progress-item {
+        font-size: 0.9rem; /* Smaller progress text */
+      }
+}
+
+@media (min-width: 481px) and (max-width: 850px) {
+    header{
+      height: 19px;
+    }
+    .logo{
+      padding-top: 20px;
+    }
+    nav{
+      display: none;
+    }
+    .hero h1 {
+        font-size: 3.2rem; /* Smaller heading */
+    }
+
+    .hero p {
+        font-size: 1.3rem; /* Smaller paragraph */
+    }
+
+    .quote-carousel {
+        font-size: 1rem; /* Smaller quote font */
+    }
+
+    .testimonial-slide {
+        flex: 0 0 300px; /* Adjust testimonial size */
+    }
+
+    .progress-item {
+        font-size: 1rem; /* Smaller progress text */
+      }
+}
