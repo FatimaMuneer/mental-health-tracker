@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mental Health Tracker - AI Chatbox</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
+  <style>
+    /* --- Botpress Widget Customization --- */
+    #webchat-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .bpFab {
+      display: none;
+    }
+    .bpWebchat {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+    }
+    
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+    
+    .chatbox {
+      width: 500px;
+      height: 400px;
+      position: fixed;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    .chatbox-header {
+      padding: 15px;
+      background-color: #6ca0dc;
+      color: #fff;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    
+    .chatbox-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      /* The Botpress widget will display at the top of this area */
+      overflow: hidden;
+    }
+    
+    /* Optional global text styles */
+    h1, h4 {
+      margin: 10px 0;
+      text-align: center;
+    }
+    h1 {
+      color: #3a8be8;
+    }
+    h4 {
+      color: #6ca0dc;
+    }
+  </style>
+</head>
+<body>
+    <br>
+  <h1>THERAPY SESSION</h1><br>
+  <h4>Talk out your thoughts with an AI-powered chat box</h4>
+  <br><br>
+  <div class="chatbox">
+    <div class="chatbox-header">
+      AI Therapy Chat
+    </div>
+    <div class="chatbox-body">
+      <!-- The Botpress widget will be injected here -->
+      <div id="webchat-container">
+        <div id="loading" style="position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+            Loading Chat...
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+     window.botpress.on("webchat:ready", () => {
+    // Hide the loading indicator once the bot is ready
+    const loading = document.getElementById('loading');
+    if(loading) loading.style.display = 'none';
+    window.botpress.open();
+  });
+    window.botpress.init({
+      botId: "31bc83d5-b3a8-47fa-9caa-5ab9c4ec27b9",
+      clientId: "d403a7e6-0a06-408a-9ffc-909f791c6b9d",
+      selector: "#webchat-container",
+      configuration: {
+        website: {},
+        email: {},
+        phone: {},
+        termsOfService: {},
+        privacyPolicy: {},
+        color: "#5eb1ef",
+        variant: "soft",
+        themeMode: "light",
+        fontFamily: "inter",
+        radius: 1
+      }
+    });
+  </script>
+</body>
+</html>
